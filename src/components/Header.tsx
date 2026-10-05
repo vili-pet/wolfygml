@@ -34,10 +34,9 @@ export function Header({ data, error }: Props) {
         <div className="ml-auto text-right">
           {data && (
             <p className="font-mono text-xs text-zinc-400">
-              synced <span className="text-zinc-200">{lastSync}</span>
+              Data updated <span className="text-zinc-200">{lastSync}</span>
             </p>
           )}
-          <p className="text-[11px] text-zinc-600">refreshes every 60s</p>
         </div>
       </div>
     </header>

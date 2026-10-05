@@ -72,7 +72,7 @@ function App() {
 
             <p className="pb-2 text-xs text-zinc-600">
               Cost estimate reference:{' '}
-              <span className="font-mono text-zinc-500">{data.costEstimateReference}</span>
+              <span className="font-mono text-zinc-500">{typeof data.costEstimateReference === 'string' ? data.costEstimateReference : `Input $${data.costEstimateReference.inputUsdPerMillion}/M, output $${data.costEstimateReference.outputUsdPerMillion}/M`}</span>
             </p>
           </>
         )}

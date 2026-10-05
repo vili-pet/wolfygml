@@ -30,7 +30,11 @@ export interface UsageBucket {
 
 export interface TelemetryData {
   telemetryUpdatedAt: string;
-  costEstimateReference: string;
+  costEstimateReference: string | {
+    inputUsdPerMillion: number;
+    outputUsdPerMillion: number;
+    source: string;
+  };
   keys: KeyEntry[];
   usageLog: UsageBucket[];
 }

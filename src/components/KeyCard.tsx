@@ -15,12 +15,13 @@ export function KeyCard({ k, usage }: Props) {
     const timer = window.setInterval(() => setNow(Date.now()), 1000);
     return () => window.clearInterval(timer);
   }, []);
-  const remaining = Math.max(0, new Date(k.expires).getTime() - now);
-  const days = Math.floor(remaining / 86400000);
-  const hours = Math.floor((remaining % 86400000) / 3600000);
-  const minutes = Math.floor((remaining % 3600000) / 60000);
-  const seconds = Math.floor((remaining % 60000) / 1000);
-  const timeLeft = remaining <= 0 ? 'expired' : `${days}d ${hours}h ${minutes}m ${seconds}s`;
+  const target = new Date('2026-10-08T00:00:00+03:00').getTime();
+  const diff = Math.max(0, target - now);
+  const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
+  const minutes = Math.floor((diff / (1000 * 60)) % 60);
+  const seconds = Math.floor((diff / 1000) % 60);
+  const timeLeft = diff <= 0 ? 'expired' : `${days}d ${hours}h ${minutes}m ${seconds}s`;
   const consumed = usage.reduce((s, b) => s + b.totalTokensMillions, 0);
   const pct = Math.min(100, (consumed * 1000000 / k.budgetCap) * 100);
   const statusColor =
@@ -29,7 +30,7 @@ export function KeyCard({ k, usage }: Props) {
   const rows: { label: string; value: string }[] = [
     { label: 'Model', value: k.model },
     { label: 'Used', value: `${fmtM(consumed)}M / ${fmtM(k.budgetCap / 1000000)}M` },
-    { label: '\u0041ikaa j\u00e4ljell\u00e4', value: timeLeft },
+    { label: 'Time remaining', value: timeLeft },
   ];
 
   return (

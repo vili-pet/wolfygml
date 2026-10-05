@@ -9,7 +9,7 @@
       "expires": "",
       "status": "active",
       "lastToggled": "",
-      "tokensUsed": 6348278
+      "tokensUsed": 7604318
     }
   ],
   "usageLog": [
@@ -392,9 +392,28 @@
       "costEstimateMethod": "prompt at $0.15/M + completion at $0.50/M; excludes cached-token discounts.",
       "costRateSource": "https://local-ai-zone.github.io/blog/glm-5-3-flash-deep-dive.html",
       "bucketMinutes": 15
+    },
+    {
+      "date": "2026-10-05",
+      "sessionStart": "15:30",
+      "sessionEnd": "15:45",
+      "totalTokensMillions": 1.25604,
+      "tokensPerSecond": 85.316,
+      "notes": "15-minute LiteLLM telemetry slice; estimated avoided API cost, not a bill.",
+      "promptTokens": 1242131,
+      "completionTokens": 13909,
+      "requestCount": 19,
+      "errorCount": 0,
+      "rateLimit429Count": 0,
+      "server5xxCount": 0,
+      "averageLatencyMs": 16771.37,
+      "estimatedCostSavedUsd": 0.19327415,
+      "costEstimateMethod": "prompt at $0.15/M + completion at $0.50/M; excludes cached-token discounts.",
+      "costRateSource": "https://local-ai-zone.github.io/blog/glm-5-3-flash-deep-dive.html",
+      "bucketMinutes": 15
     }
   ],
-  "telemetryUpdatedAt": "2026-10-05T15:40:00+03:00",
+  "telemetryUpdatedAt": "2026-10-05T15:50:00+03:00",
   "costEstimateReference": {
     "inputUsdPerMillion": 0.15,
     "outputUsdPerMillion": 0.5,

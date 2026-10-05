@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    background-color: #18181b; /* zinc-900 */
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    min-height: 100vh;
+    font-size: 15px;
+    line-height: 1.5;
+    background:
+      radial-gradient(1200px 600px at 20% -10%, rgba(34, 211, 238, 0.06), transparent 60%),
+      radial-gradient(900px 500px at 90% 110%, rgba(20, 184, 166, 0.05), transparent 60%),
+      #18181b;
+  }
+  @media (min-width: 640px) {
+    body {
+      font-size: 16px;
+    }
+  }
+}

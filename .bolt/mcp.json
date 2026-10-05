@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "n8n_vili_cloud": {
+      "enabled": true
+    }
+  }
+}

@@ -16,8 +16,11 @@ export function fmtCost(n: number): string {
   return n >= 1000 ? `$${(n / 1000).toFixed(2)}k` : `$${n.toFixed(2)}`;
 }
 
-export function timeAgo(iso: string): string {
-  const diff = Date.now() - new Date(iso).getTime();
+export function timeAgo(iso: string | null | undefined): string {
+  if (!iso) return 'recently';
+  const timestamp = new Date(iso).getTime();
+  if (!Number.isFinite(timestamp)) return 'recently';
+  const diff = Date.now() - timestamp;
   const m = Math.floor(diff / 60000);
   if (m < 1) return 'just now';
   if (m < 60) return `${m}m ago`;

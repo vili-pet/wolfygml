@@ -1,7 +1,8 @@
+import { useEffect, useState } from 'react';
 import { CalendarClock, KeyRound, User, Zap } from 'lucide-react';
 import type { KeyEntry, UsageBucket } from '@/lib/telemetry';
 import { StatusBadge } from './StatusBadge';
-import { countdown, fmtM, timeAgo } from '@/lib/format';
+import { fmtM, timeAgo } from '@/lib/format';
 
 interface Props {
   k: KeyEntry;
@@ -9,6 +10,17 @@ interface Props {
 }
 
 export function KeyCard({ k, usage }: Props) {
+  const [now, setNow] = useState(() => Date.now());
+  useEffect(() => {
+    const timer = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(timer);
+  }, []);
+  const remaining = Math.max(0, new Date(k.expires).getTime() - now);
+  const days = Math.floor(remaining / 86400000);
+  const hours = Math.floor((remaining % 86400000) / 3600000);
+  const minutes = Math.floor((remaining % 3600000) / 60000);
+  const seconds = Math.floor((remaining % 60000) / 1000);
+  const timeLeft = remaining <= 0 ? 'expired' : `${days}d ${hours}h ${minutes}m ${seconds}s`;
   const consumed = usage.reduce((s, b) => s + b.totalTokensMillions, 0);
   const pct = Math.min(100, (consumed * 1000000 / k.budgetCap) * 100);
   const statusColor =
@@ -17,7 +29,7 @@ export function KeyCard({ k, usage }: Props) {
   const rows: { label: string; value: string }[] = [
     { label: 'Model', value: k.model },
     { label: 'Used', value: `${fmtM(consumed)}M / ${fmtM(k.budgetCap / 1000000)}M` },
-    { label: 'Expires', value: countdown(k.expires) },
+    { label: '\u0041ikaa j\u00e4ljell\u00e4', value: timeLeft },
   ];
 
   return (

@@ -15,9 +15,11 @@ interface Pt {
 }
 
 const ranges = [
+  { label: '1H', ms: 1 * 3600 * 1000 },
   { label: '6H', ms: 6 * 3600 * 1000 },
+  { label: '12H', ms: 12 * 3600 * 1000 },
   { label: '24H', ms: 24 * 3600 * 1000 },
-  { label: '7D', ms: 7 * 86400000 },
+  { label: '48H', ms: 48 * 3600 * 1000 },
 ] as const;
 
 export function ThroughputChart({ buckets }: Props) {

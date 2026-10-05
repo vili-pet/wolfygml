@@ -1,16 +1,16 @@
 {
-  "telemetryUpdatedAt": "2026-10-05T07:34:30Z",
+  "telemetryUpdatedAt": "2026-10-05T07:36:27Z",
   "costEstimateReference": "GLM-5.3-Flash · unlimited free campaign window",
   "keys": [
     {
-      "label": "glm-5.3-flash",
-      "holder": "community campaign",
-      "model": "GLM-5.3-Flash",
-      "budgetCap": 1000000000,
-      "activeWindow": "00:00–24:00 UTC",
-      "expires": "2026-10-12T00:00:00Z",
-      "status": "ok",
-      "lastToggled": "2026-10-05T07:34:30Z",
+      "label": "glm-flash-key-01",
+      "holder": "Wolfy (@wolfybl)",
+      "model": "glm-5.3-flash",
+      "budgetCap": "",
+      "activeWindow": "18:00-04:00 Europe/Helsinki",
+      "expires": "",
+      "status": "locked",
+      "lastToggled": "",
       "tokensUsed": 0
     }
   ],

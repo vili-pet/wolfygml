@@ -4,8 +4,8 @@ export function bucketTimestamp(b: UsageBucket): number {
   return new Date(`${b.date}T${b.sessionStart}:00Z`).getTime();
 }
 
-export function fmtInt(n: number): string {
-  return n.toLocaleString('en-US');
+export function fmtInt(n: number | null | undefined): string {
+  return n == null ? '-' : n.toLocaleString('en-US');
 }
 
 export function fmtM(n: number): string {

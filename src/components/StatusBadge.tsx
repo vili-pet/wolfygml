@@ -8,7 +8,11 @@ const config: Record<KeyStatus, { color: string; dot: string; icon: typeof Check
 };
 
 export function StatusBadge({ status }: { status: KeyStatus }) {
-  const { color, dot, icon: Icon } = config[status];
+  const { color, dot, icon: Icon } = config[status] ?? {
+    color: 'text-zinc-400',
+    dot: 'bg-zinc-400',
+    icon: CheckCircle2,
+  };
   return (
     <span
       className={`inline-flex items-center gap-1.5 rounded border border-zinc-700/70 bg-zinc-800/60 px-2 py-1 text-xs font-medium ${color}`}

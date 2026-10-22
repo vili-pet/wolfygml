@@ -27146,7 +27146,7 @@
       "bucketMinutes": 15
     }
   ],
-  "telemetryUpdatedAt": "2026-10-22T15:00:00+03:00",
+  "telemetryUpdatedAt": "2026-10-22T15:10:00+03:00",
   "costEstimateReference": {
     "inputUsdPerMillion": 0.15,
     "outputUsdPerMillion": 0.5,
